@@ -6,5 +6,6 @@ use Illuminate\Http\Request;
 
 class ImportIndividusController extends Controller
 {
+  
     //
 }
