@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/acceuil',function(){
   return view('acceuil');
 });
+
+
+Route::POST('import-individus','ImportIndividusController@import');
