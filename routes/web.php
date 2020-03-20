@@ -22,4 +22,5 @@ Route::get('/acceuil',function(){
 });
 
 
+Route::GET('import-individus','ImportIndividusController@afficher');
 Route::POST('import-individus','ImportIndividusController@import');
