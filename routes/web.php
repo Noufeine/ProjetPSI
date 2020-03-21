@@ -14,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
-
-Route::get('/acceuil',function(){
-  return view('acceuil');
-});
-
 
 Route::GET('import-individus','ImportIndividusController@afficher');
 Route::POST('import-individus','ImportIndividusController@import');
