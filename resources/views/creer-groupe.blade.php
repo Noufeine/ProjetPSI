@@ -27,7 +27,7 @@
         <div class="form-group col-md-6">
           <label for="modalite">Niveau</label>
           <select class="form-control" name="niveau" id="niveau" onchange="creerFormation()">
-            <option ></option>
+            <option></option>
             <option value="L1">Licence 1</option>
             <option value="L2">Licence 2</option>
             <option value="L3">Licence 3</option>
