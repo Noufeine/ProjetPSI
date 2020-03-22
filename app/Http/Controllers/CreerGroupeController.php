@@ -9,6 +9,7 @@ class CreerGroupeController extends Controller
 {
   public function creer(Request $request)
   {
+
     //selection de l'identifiant de la formation
     $id_formation=DB::table('Formation')
     ->join('Composante', 'Composante.id_composante', '=', 'Formation.fid_composante')
@@ -36,8 +37,17 @@ class CreerGroupeController extends Controller
       'fid_modalite' => $id_modalite,
     ]);
 
-    return view('liste-groupes');
+    //liste des groupes pour envoyer à la page liste-groupes
+    $groupes=DB::table('Groupe')
+    ->join('Modalite', 'Modalite.id_modalite', '=', 'Groupe.fid_modalite')
+    ->join('Formation', 'Formation.id_formation', '=', 'Groupe.fid_formation')
+    ->join('Composante', 'Composante.id_composante', '=', 'Formation.fid_composante')
+    ->join('Niveau', 'Niveau.id_niveau', '=', 'Formation.fid_niveau')
+    ->get();
+
+    return view('liste-groupes',compact('groupes'));
   }
+
   public function formulaire()
   {
     //je recupere toutes les formations, avec leurs niveaux et leurs composantes
@@ -48,7 +58,4 @@ class CreerGroupeController extends Controller
 
     return view('creer-groupe',compact('formations'));
   }
-
-
-
 }

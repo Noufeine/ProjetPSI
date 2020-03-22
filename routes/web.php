@@ -27,6 +27,9 @@ Route::GET('creer-groupe','CreerGroupeController@formulaire');
 //Creation d'un groupe (Nfn)
 Route::POST('liste-groupes','CreerGroupeController@creer');
 
-
 //affichage (liste) des groupes
 Route::GET('liste-groupes','ListeGroupesController@liste');
+
+//importation des formations (Nfn)
+Route::GET('import-formations','ImportFormationsController@afficher');
+Route::POST('import-formations','ImportFormationsController@import');
