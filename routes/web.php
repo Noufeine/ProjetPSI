@@ -239,7 +239,7 @@ $liste_cours = DB::table('cours')->get();
 return view('liste',compact('liste_seance','liste_groupe_individu','liste_groupe','liste_cours'));
 });
 
-
+/*
 Route::get('/modification',function(){
   return view('modifier');
 });
@@ -256,7 +256,7 @@ Route::post('/modification',function(){
 );
 
 return 'formulaire reçu';
-});
+});*/
 
 
 /* A revoir */
