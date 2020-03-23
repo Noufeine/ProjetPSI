@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
 return view('welcome');
 });
 
@@ -282,3 +283,24 @@ return 'formulaire reçu';
 
 });
 */
+=======
+    return view('accueil');
+});
+
+//importation des individus (Nfn)
+Route::GET('import-individus','ImportIndividusController@afficher');
+Route::POST('import-individus','ImportIndividusController@import');
+
+//formulaire de creation d'un groupe (Nfn)
+Route::GET('creer-groupe','CreerGroupeController@formulaire');
+
+//Creation d'un groupe (Nfn)
+Route::POST('liste-groupes','CreerGroupeController@creer');
+
+//affichage (liste) des groupes
+Route::GET('liste-groupes','ListeGroupesController@liste');
+
+//importation des formations (Nfn)
+Route::GET('import-formations','ImportFormationsController@afficher');
+Route::POST('import-formations','ImportFormationsController@import');
+>>>>>>> 91ee3a8761071d3eb8845239a078b73d0c9c177b
