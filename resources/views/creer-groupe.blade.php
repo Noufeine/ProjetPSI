@@ -78,12 +78,7 @@
 
 <script>
 
-
-
-
 var formations=@json($formations);
-console.log(formations);
-
 
 function creerFormation() {
 
@@ -98,7 +93,7 @@ function creerFormation() {
     if(ufr==formation["code_composante"] && niveau==formation["code_niveau"])
     {
       var formationOption = document.createElement("option");
-      formationOption.innerHTML=formation["libelle_formation"];
+      formationOption.innerHTML=formation["code_formation"];
       formationOption.value=formation["libelle_formation"];
       formationSelect.appendChild(formationOption);
     }
