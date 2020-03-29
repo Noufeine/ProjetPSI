@@ -1,18 +1,21 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Imports\ImportIndividus;
-use Maatwebsite\Excel\Facades\Excel;
 use DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportGroupes;
+use App\Http\Controllers\Controller;
 
 
-class ImportIndividusController extends Controller
+
+
+class ImportGroupesController extends Controller
 {
   public function afficher()
     {
-        return view('import-individus');
+        return view('import-groupes');
     }
 
   public function import(Request $request)
@@ -21,7 +24,7 @@ class ImportIndividusController extends Controller
       'import_file' => 'required|mimes:xls,xlsx'
     ]);
 
-    Excel::import(new ImportIndividus, request()->file('import_file'));
+    Excel::import(new ImportGroupes, request()->file('import_file'));
 
     return view('accueil');
 

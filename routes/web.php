@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('accueil');
 });
 
+
+//importation des groupes (Nfn)
+Route::GET('import-groupes','ImportGroupesController@afficher');
+Route::POST('import-groupes','ImportGroupesController@import');
+
 //importation des individus (Nfn)
 Route::GET('import-individus','ImportIndividusController@afficher');
 Route::POST('import-individus','ImportIndividusController@import');

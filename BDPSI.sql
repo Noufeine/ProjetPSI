@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 29, 2020 at 05:39 PM
+-- Generation Time: Mar 29, 2020 at 10:21 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -70,7 +70,6 @@ CREATE TABLE `Formation` (
   `libelle_formation` varchar(255) DEFAULT NULL,
   `VET` varchar(255) DEFAULT NULL,
   `fid_composante` bigint(20) DEFAULT NULL,
-  `fid_niveau` bigint(20) NOT NULL,
   `code_formation` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,17 +77,9 @@ CREATE TABLE `Formation` (
 -- Dumping data for table `Formation`
 --
 
-INSERT INTO `Formation` (`id_formation`, `libelle_formation`, `VET`, `fid_composante`, `fid_niveau`, `code_formation`) VALUES
-(1, 'Miage', NULL, 4, 1, 'Miage'),
-(2, 'Mathématiques et informatiques appliquées aux sciences humaines et sociales', NULL, 4, 2, 'MIASHS'),
-(3, 'Mathématiques et informatiques appliquées aux sciences humaines et sociales', NULL, 4, 3, 'MIASHS'),
-(4, 'Mathématiques et informatiques appliquées aux sciences humaines et sociales Mention : Méthodes informatiques appliquées à la gestion des entreprises', NULL, 4, 1, 'MIASHS-Miage'),
-(5, 'Mathématiques et informatiques appliquées aux sciences humaines et sociales Mention : Mathématique et économie', NULL, 4, 1, 'MIASHS-Math-éco'),
-(6, 'Sciences pour l’ingénieur ', NULL, 5, 2, 'SPI'),
-(7, 'Sciences pour l’ingénieur ', NULL, 5, 3, 'SPI'),
-(8, 'Sciences pour l’ingénieur Mention : Mécanique', NULL, 5, 1, 'SPI-Méca'),
-(9, 'Sciences pour l’ingénieur Mention : Énergétique', NULL, 5, 1, 'SPI-Energ'),
-(10, 'Sciences pour l’ingénieur Mention : Électronique', NULL, 5, 1, 'SPI-Electr');
+INSERT INTO `Formation` (`id_formation`, `libelle_formation`, `VET`, `fid_composante`, `code_formation`) VALUES
+(1, 'Méthodes informatiques appliquées à la gestion des entreprises\r\n', NULL, 4, 'MIAGE'),
+(2, 'Mathématiques et informatiques appliquées aux sciences humaines et sociales', NULL, 4, 'MIASHS');
 
 -- --------------------------------------------------------
 
@@ -100,8 +91,18 @@ CREATE TABLE `Groupe` (
   `id_groupe` bigint(20) NOT NULL,
   `libelle_groupe` varchar(255) DEFAULT NULL,
   `fid_formation` bigint(20) DEFAULT NULL,
-  `fid_modalite` bigint(20) DEFAULT NULL
+  `fid_modalite` bigint(20) DEFAULT NULL,
+  `fid_niveau` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Groupe`
+--
+
+INSERT INTO `Groupe` (`id_groupe`, `libelle_groupe`, `fid_formation`, `fid_modalite`, `fid_niveau`) VALUES
+(3, 'L3_MIAGE_APP', 1, 2, 3),
+(4, 'L2_MIASHS', 2, 3, 2),
+(9, 'L1_MIASHS', 2, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -172,9 +173,11 @@ CREATE TABLE `Niveau` (
 --
 
 INSERT INTO `Niveau` (`id_niveau`, `libelle_niveau`, `code_niveau`) VALUES
-(1, 'Licence 3', 'L3'),
-(2, 'Licence 1', 'L1'),
-(3, 'Licence 2', 'L2');
+(1, 'Licence 1', 'L1'),
+(2, 'Licence 2', 'L2'),
+(3, 'Licence 3', 'L3'),
+(4, 'Master 1', 'M1'),
+(5, 'Master 2', 'M2');
 
 -- --------------------------------------------------------
 
@@ -228,6 +231,14 @@ CREATE TABLE `Type_Individu` (
   `libelle_type_individu` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `Type_Individu`
+--
+
+INSERT INTO `Type_Individu` (`id_type_individu`, `libelle_type_individu`) VALUES
+(1, 'Enseignant'),
+(2, 'Etudiant');
+
 -- --------------------------------------------------------
 
 --
@@ -260,8 +271,7 @@ ALTER TABLE `Cours`
 --
 ALTER TABLE `Formation`
   ADD PRIMARY KEY (`id_formation`),
-  ADD KEY `fid_composante` (`fid_composante`),
-  ADD KEY `fid_niveau` (`fid_niveau`);
+  ADD KEY `fid_composante` (`fid_composante`);
 
 --
 -- Indexes for table `Groupe`
@@ -269,7 +279,8 @@ ALTER TABLE `Formation`
 ALTER TABLE `Groupe`
   ADD PRIMARY KEY (`id_groupe`),
   ADD KEY `fid_formation` (`fid_formation`),
-  ADD KEY `fid_modalite` (`fid_modalite`);
+  ADD KEY `fid_modalite` (`fid_modalite`),
+  ADD KEY `fid_niveau` (`fid_niveau`);
 
 --
 -- Indexes for table `Groupe_Individu`
@@ -370,7 +381,7 @@ ALTER TABLE `Modalite`
 -- AUTO_INCREMENT for table `Niveau`
 --
 ALTER TABLE `Niveau`
-  MODIFY `id_niveau` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_niveau` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Salle`
@@ -398,15 +409,15 @@ ALTER TABLE `Type_Seance`
 -- Constraints for table `Formation`
 --
 ALTER TABLE `Formation`
-  ADD CONSTRAINT `formation_ibfk_1` FOREIGN KEY (`fid_composante`) REFERENCES `Composante` (`id_composante`),
-  ADD CONSTRAINT `formation_ibfk_2` FOREIGN KEY (`fid_niveau`) REFERENCES `Formation` (`id_formation`);
+  ADD CONSTRAINT `formation_ibfk_1` FOREIGN KEY (`fid_composante`) REFERENCES `Composante` (`id_composante`);
 
 --
 -- Constraints for table `Groupe`
 --
 ALTER TABLE `Groupe`
   ADD CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`fid_formation`) REFERENCES `Formation` (`id_formation`),
-  ADD CONSTRAINT `groupe_ibfk_2` FOREIGN KEY (`fid_modalite`) REFERENCES `Modalite` (`id_modalite`);
+  ADD CONSTRAINT `groupe_ibfk_2` FOREIGN KEY (`fid_modalite`) REFERENCES `Modalite` (`id_modalite`),
+  ADD CONSTRAINT `groupe_ibfk_3` FOREIGN KEY (`fid_niveau`) REFERENCES `Niveau` (`id_niveau`);
 
 --
 -- Constraints for table `Groupe_Individu`
