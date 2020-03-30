@@ -19,6 +19,7 @@ return view('welcome');
 });
 
 Route::get('/ajout',function(){
+
 return view('ajout');
 });
 
@@ -26,6 +27,7 @@ Route::post('/seance',function(){
 
 //insertion table simple
 
+/*
    DB::table('salle')->insert(
     [
       'numero_salle' => request('numero_salle'),
@@ -72,7 +74,7 @@ Route::post('/seance',function(){
       'libelle_niveau' => request('libelle_niveau')
     ]
   );
-
+*/
 
   /**********************individu ********************************/
 
@@ -99,10 +101,12 @@ $fid_type_individu = DB::table('type_individu')
 
   /***** seance *****/
 
-  $fid_salle=DB::table('salle')
+  /*$fid_salle=DB::table('salle')
   ->where('numero_salle', request('numero_salle'))
   ->take(1)
   ->value('id_salle');
+*/
+$fid_salle=DB::table('salle');
 
   $fid_type_seance=DB::table('type_seance')
   ->where('libelle_type_seance',request('libelle_type_seance'))
@@ -212,8 +216,9 @@ DB::table('seance_groupe')->insert(
 
 /******************************************************************************/
 
-  return 'formulaire reçu';
-});
+  return view('ajout',compact('fid_salle'));
+}
+);
 
 Route::get('/liste',function(){
 $liste_seance = DB::table('seance')

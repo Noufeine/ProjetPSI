@@ -7,7 +7,14 @@
 
 <body>
 
-<h1> La liste des types de seance </h1>
+<h1> la liste des types de seance </h1>
+
+<select name='fid_salle'>
+  @foreach($liste_seance as $seance)
+  <option VALUES >
+  </option>
+
+@endforeach
 <div>
 @foreach($liste_seance as $seance)
 <li>  numero de salle : {{ $seance->numero_salle }}</li>
