@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card mt-4">
         <div class="card-header">
-            Import Groupes
+            Importer des Groupes
         </div>
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,25 +27,26 @@
                 @csrf
                 <input type="file" name="import_file" class="form-control">
                 <br>
+                <input type="checkbox" name="choix" onclick="creerGroupe()" id="g"> <i>Créer le groupe s'il n'existe pas<i>
+                <br><br>
                 <button class="btn btn-success">Import Fichier</button>
             </form>
         </div>
     </div>
-    <div>
-      <div>
-        <h3 class="">💻 Groupes de Nanterre </h3>
-      </div>
-      <div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <tr>
-              <th>Numéro</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
 </div>
+
+<script>
+var i=0;
+
+function creerGroupe(){
+  i++;
+  i=i%2;
+  document.getElementById('g').value=i;
+  console.log(i);
+}
+
+</script>
+
+
+
 @endsection
