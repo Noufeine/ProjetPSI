@@ -19,7 +19,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
   </head>
   <body>
 
@@ -64,7 +64,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="import-individus">Importer</a>
-              <a class="dropdown-item" href="#">Exporter</a>
+              <a class="dropdown-item" href="export-individus">Exporter</a>
             </div>
           </li>
         </ul>

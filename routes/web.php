@@ -26,6 +26,12 @@ Route::POST('import-groupes','ImportGroupesController@import');
 Route::GET('import-individus','ImportIndividusController@afficher');
 Route::POST('import-individus','ImportIndividusController@import');
 
+//Exportation des individus
+Route::GET('export-individus','ExportIndividusController@afficher');
+Route::POST('export-individus','ExportIndividusController@export');
+
+
+
 //formulaire de creation d'un groupe (Nfn)
 Route::GET('creer-groupe','CreerGroupeController@formulaire');
 
