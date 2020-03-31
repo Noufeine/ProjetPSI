@@ -41,8 +41,8 @@
               <a class="dropdown-item" href="#">Lister</a>
               <a class="dropdown-item" href="#">Créer</a>
               <a class="dropdown-item" href="#">Supprimer</a>
-              <a class="dropdown-item" href="#">inscrire</a>
-              <a class="dropdown-item" href="#">Désinscrire</a>
+              <a class="dropdown-item" href="inscrire-individus">Inscrire</a>
+              <a class="dropdown-item" href="desinscrire-individus">Désinscrire</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="import-groupes">Importer</a>
               <a class="dropdown-item" href="#">Exporter</a>
