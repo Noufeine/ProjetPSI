@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
 return view('welcome');
 }
 );
+
 
 //importation des groupes (Nfn)
 Route::GET('import-groupes','ImportGroupesController@afficher');
@@ -25,6 +27,19 @@ Route::POST('import-groupes','ImportGroupesController@import');
 //importation des individus (Nfn)
 Route::GET('import-individus','ImportIndividusController@afficher');
 Route::POST('import-individus','ImportIndividusController@import');
+
+//Exportation des individus
+Route::GET('export-individus','ExportIndividusController@afficher');
+Route::POST('export-individus','ExportIndividusController@export');
+
+//Exportation des groupes (Nfn)
+Route::GET('export-groupes','ExportGroupesController@afficher');
+Route::POST('export-groupes','ExportGroupesController@export');
+
+//Inscription des individus
+Route::GET('inscrire-individus','InscrireIndividusController@inscrire');
+Route::POST('inscrire-individus','InscrireIndividusController@ajouter');
+
 
 //formulaire de creation d'un groupe (Nfn)
 Route::GET('creer-groupe','CreerGroupeController@formulaire');

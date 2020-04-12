@@ -25,6 +25,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Composante`
 --
+CREATE Database BDPSI;
+
+USE BDPSI;
 
 CREATE TABLE `Composante` (
   `id_composante` bigint(20) NOT NULL,

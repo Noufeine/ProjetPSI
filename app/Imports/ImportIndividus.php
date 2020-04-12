@@ -20,7 +20,7 @@ class ImportIndividus implements ToModel
       if(@$row[0]!='NOM'){
 
         DB::table('individu')->updateOrInsert(['id_individu' => @$row[3]],
-        ['id_individu' => @$row[3], 'nom_individu' => @$row[0], 'prenom_individu' => @$row[1]]);
+        ['id_individu' => @$row[3], 'annuaire' => @$row[2], 'fid_type_individu' => @$row[2] ,'nom_individu' => @$row[0], 'prenom_individu' => @$row[1]]);
 
         }
     }

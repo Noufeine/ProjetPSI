@@ -5,7 +5,7 @@
 <div class="container">
     <div class="card mt-4">
         <div class="card-header">
-            Import Groupes
+            Importer des Groupes
         </div>
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -32,21 +32,9 @@
             </form>
         </div>
     </div>
-    <div>
-      <div>
-        <h3 class="">💻 Groupes de Nanterre </h3>
-      </div>
-      <div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <tr>
-              <th>Numéro</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
 </div>
+
+
+
+
 @endsection

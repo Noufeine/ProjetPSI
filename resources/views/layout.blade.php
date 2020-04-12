@@ -17,6 +17,9 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
   <body>
 
@@ -38,11 +41,11 @@
               <a class="dropdown-item" href="#">Lister</a>
               <a class="dropdown-item" href="#">Créer</a>
               <a class="dropdown-item" href="#">Supprimer</a>
-              <a class="dropdown-item" href="#">inscrire</a>
-              <a class="dropdown-item" href="#">Désinscrire</a>
+              <a class="dropdown-item" href="inscrire-individus">Inscrire</a>
+              <a class="dropdown-item" href="desinscrire-individus">Désinscrire</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="import-groupes">Importer</a>
-              <a class="dropdown-item" href="#">Exporter</a>
+              <a class="dropdown-item" href="export-groupes">Exporter</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -61,7 +64,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="import-individus">Importer</a>
-              <a class="dropdown-item" href="#">Exporter</a>
+              <a class="dropdown-item" href="export-individus">Exporter</a>
             </div>
           </li>
         </ul>
