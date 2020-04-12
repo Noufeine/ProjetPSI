@@ -1,11 +1,10 @@
 @extends('layout')
 
 @section('contenu')
-
 <div class="container">
     <div class="card mt-4">
         <div class="card-header">
-            Import Formations
+            Import Groupes
         </div>
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -24,7 +23,7 @@
    </div>
    @endif
         <div class="card-body">
-            <form action="{{url('import-formations')}}" method="POST" name="importform" enctype="multipart/form-data">
+            <form action="{{url('import-groupes')}}" method="POST" name="importform" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="import_file" class="form-control">
                 <br>
@@ -34,7 +33,7 @@
     </div>
     <div>
       <div>
-        <h3 class="">💻 Formations de Nanterre </h3>
+        <h3 class="">💻 Groupes de Nanterre </h3>
       </div>
       <div>
         <div class="table-responsive">

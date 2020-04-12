@@ -8,11 +8,13 @@ use DB;
 class ListeGroupesController extends Controller
 {
     public function liste(){
+
       $groupes=DB::table('Groupe')
       ->join('Modalite', 'Modalite.id_modalite', '=', 'Groupe.fid_modalite')
       ->join('Formation', 'Formation.id_formation', '=', 'Groupe.fid_formation')
       ->join('Composante', 'Composante.id_composante', '=', 'Formation.fid_composante')
       ->join('Niveau', 'Niveau.id_niveau', '=', 'Formation.fid_niveau')
+      ->orderBy('Composante.code_composante')
       ->get();
 
       return view('liste-groupes',compact('groupes'));

@@ -23,7 +23,7 @@ class ImportIndividusController extends Controller
 
     Excel::import(new ImportIndividus, request()->file('import_file'));
 
-    return view('welcome');
+    return view('accueil');
 
     }
 }

@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Imports\ImportFormations;
-use App\Http\Controllers\Controller;
+use DB;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportGroupes;
+use App\Http\Controllers\Controller;
 
 
-class ImportFormationsController extends Controller
+
+
+class ImportGroupesController extends Controller
 {
-
   public function afficher()
-  {
-    return view('import-formations');
-  }
+    {
+        return view('import-groupes');
+    }
 
   public function import(Request $request)
   {
@@ -22,10 +24,9 @@ class ImportFormationsController extends Controller
       'import_file' => 'required|mimes:xls,xlsx'
     ]);
 
-    Excel::import(new ImportFormations, request()->file('import_file'));
+    Excel::import(new ImportGroupes, request()->file('import_file'));
 
-    return view('welcome');
+    return view('accueil');
 
     }
-
 }

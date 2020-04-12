@@ -35,13 +35,13 @@
               Groupes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="liste-groupes">Lister</a>
-              <a class="dropdown-item" href="creer-groupe">Créer</a>
+              <a class="dropdown-item" href="#">Lister</a>
+              <a class="dropdown-item" href="#">Créer</a>
               <a class="dropdown-item" href="#">Supprimer</a>
               <a class="dropdown-item" href="#">inscrire</a>
               <a class="dropdown-item" href="#">Désinscrire</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Importer</a>
+              <a class="dropdown-item" href="import-groupes">Importer</a>
               <a class="dropdown-item" href="#">Exporter</a>
             </div>
           </li>
@@ -61,15 +61,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="import-individus">Importer</a>
-              <a class="dropdown-item" href="#">Exporter</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Formations
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="import-formations">Importer</a>
               <a class="dropdown-item" href="#">Exporter</a>
             </div>
           </li>
