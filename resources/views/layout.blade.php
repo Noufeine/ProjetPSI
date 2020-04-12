@@ -45,7 +45,7 @@
               <a class="dropdown-item" href="desinscrire-individus">Désinscrire</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="import-groupes">Importer</a>
-              <a class="dropdown-item" href="#">Exporter</a>
+              <a class="dropdown-item" href="export-groupes">Exporter</a>
             </div>
           </li>
           <li class="nav-item dropdown">

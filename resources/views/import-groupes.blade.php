@@ -27,25 +27,12 @@
                 @csrf
                 <input type="file" name="import_file" class="form-control">
                 <br>
-                <input type="checkbox" name="choix" onclick="creerGroupe()" id="g"> <i>Créer le groupe s'il n'existe pas<i>
-                <br><br>
                 <button class="btn btn-success">Import Fichier</button>
             </form>
         </div>
     </div>
 </div>
 
-<script>
-var i=0;
-
-function creerGroupe(){
-  i++;
-  i=i%2;
-  document.getElementById('g').value=i;
-  console.log(i);
-}
-
-</script>
 
 
 
