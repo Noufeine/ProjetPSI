@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('accueil');
 });
+
 
 
 //importation des groupes (Nfn)
@@ -30,6 +32,9 @@ Route::POST('import-individus','ImportIndividusController@import');
 Route::GET('export-individus','ExportIndividusController@afficher');
 Route::POST('export-individus','ExportIndividusController@export');
 
+//Inscription des individus
+Route::GET('inscrire-individus','InscrireIndividusController@inscrire');
+Route::POST('inscrire-individus','InscrireIndividusController@ajouter');
 
 
 //formulaire de creation d'un groupe (Nfn)
